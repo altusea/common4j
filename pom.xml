@@ -7,10 +7,65 @@
     <groupId>dev.ceres</groupId>
     <artifactId>common4j</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>base</module>
+        <module>extend</module>
+    </modules>
 
     <properties>
         <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- versions -->
+        <commons-lang3.version>3.14.0</commons-lang3.version>
+        <commons-collections4.version>4.4</commons-collections4.version>
+        <jetbrains-annotations.version>24.1.0</jetbrains-annotations.version>
+        <jackson.version>2.17.1</jackson.version>
+        <http-components.version>5.4-alpha2</http-components.version>
+        <hutool.version>5.8.27</hutool.version>
+        <okhttp.version>5.0.0-alpha.14</okhttp.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${jetbrains-annotations.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <showDeprecation>true</showDeprecation>
+                    <compilerArgs>
+                        <compilerArg>--enable-preview</compilerArg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
