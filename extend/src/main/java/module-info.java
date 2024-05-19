@@ -1,4 +1,5 @@
 module extend {
+    requires base;
     requires org.apache.commons.collections4;
     requires org.apache.commons.lang3;
     requires org.apache.httpcomponents.client5.httpclient5;
